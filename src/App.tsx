@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Heart, Mail, Sparkles, Users, Shield, Star, Globe, Send, ChevronDown, Database, Search, HeartHandshake, BarChart3 } from 'lucide-react';
 import { saveEmail } from './utils/emailStorage';
-import { AdminPanel } from './components/AdminPanel';
 
 type Language = 'es' | 'en';
 
@@ -277,7 +276,6 @@ function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [visibleSections, setVisibleSections] = useState<Set<string>>(new Set());
-  const [showAdminPanel, setShowAdminPanel] = useState(false);
 
   const sectionRefs = {
     hero: useRef<HTMLElement>(null),
@@ -345,19 +343,6 @@ function App() {
   }, []);
 
   const isVisible = (sectionId: string) => visibleSections.has(sectionId);
-
-  // Admin panel keyboard shortcut
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.ctrlKey && e.shiftKey && e.key === 'A') {
-        e.preventDefault();
-        setShowAdminPanel(true);
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
-  }, []);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-orange-50 via-white to-blue-50">
@@ -685,12 +670,6 @@ function App() {
           <p className="text-gray-400 text-sm">{t.footer.copyright}</p>
         </div>
       </footer>
-
-      {/* Admin Panel */}
-      <AdminPanel 
-        isOpen={showAdminPanel} 
-        onClose={() => setShowAdminPanel(false)} 
-      />
     </div>
   );
 }

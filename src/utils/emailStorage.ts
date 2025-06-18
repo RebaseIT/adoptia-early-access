@@ -5,55 +5,48 @@ export interface WaitlistEntry {
   createdAt: string;
 }
 
-// Use different endpoints for development vs production
-const API_ENDPOINT = import.meta.env.DEV 
-  ? '/api/submit-email' 
-  : '/api/submit-email';
+// Web3Forms access key from environment variables
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY;
 
 export const saveEmail = async (email: string, language: string): Promise<{ success: boolean; totalCount?: number; duplicate?: boolean }> => {
-  try {
-    // In development, simulate the API call
-    if (import.meta.env.DEV) {
-      console.log('Development mode: Simulating email submission', { email, language });
-      
-      // Simulate network delay
-      await new Promise(resolve => setTimeout(resolve, 800));
-      
-      // Simulate successful response
-      return {
-        success: true,
-        totalCount: Math.floor(Math.random() * 100) + 1,
-        duplicate: false
-      };
-    }
+  // Check if access key is configured
+  if (!WEB3FORMS_ACCESS_KEY) {
+    console.error('Web3Forms access key not configured. Please set VITE_WEB3FORMS_ACCESS_KEY in your .env file.');
+    return { success: false };
+  }
 
-    const response = await fetch(API_ENDPOINT, {
+  try {
+    const formData = new FormData();
+    formData.append('access_key', WEB3FORMS_ACCESS_KEY);
+    formData.append('email', email);
+    formData.append('language', language);
+    formData.append('subject', 'New Adoptia Waitlist Signup');
+    formData.append('from_name', 'Adoptia Waitlist');
+    formData.append('message', `New waitlist signup:\n\nEmail: ${email}\nLanguage: ${language}\nDate: ${new Date().toLocaleString()}`);
+
+    const response = await fetch('https://api.web3forms.com/submit', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, language }),
+      body: formData
     });
 
-    const data = await response.json();
-    
-    if (response.ok) {
+    const result = await response.json();
+
+    if (result.success) {
       return {
         success: true,
-        totalCount: data.totalCount,
-        duplicate: data.duplicate
+        totalCount: 1 // Web3Forms doesn't provide count, so we return 1
       };
     } else {
-      console.error('API Error:', data);
+      console.error('Web3Forms error:', result);
       return { success: false };
     }
   } catch (error) {
-    console.error('Network Error:', error);
+    console.error('Error submitting to Web3Forms:', error);
     return { success: false };
   }
 };
 
-// These functions are kept for the admin panel but will show empty data
+// These functions are kept for compatibility but return empty data
 // since we're not storing anything locally anymore
 export const getEmails = (): WaitlistEntry[] => {
   return [];
@@ -61,8 +54,4 @@ export const getEmails = (): WaitlistEntry[] => {
 
 export const getEmailCount = (): number => {
   return 0;
-};
-
-export const clearEmails = (): void => {
-  // No-op since we're not using localStorage
 };
