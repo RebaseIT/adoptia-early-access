@@ -229,19 +229,19 @@ const content: Content = {
       title: 'Potenciá tu refugio',
       petsManagement: {
         title: 'Gestión Inteligente de Mascotas',
-        description: 'Optimizá las operaciones de tu refugio con perfiles de mascotas potenciados por IA, seguimiento automático de salud y gestión inteligente de inventario.'
+        description: 'Optimizá tu refugio con perfiles de mascotas potenciados por IA, seguimiento automático de salud y gestión inteligente de inventario.'
       },
       adopterFinder: {
         title: 'Matching de adoptantes por IA',
-        description: 'Nuestro algoritmo avanzado conecta tus animales con los adoptantes más compatibles, aumentando las colocaciones exitosas en un 40%.'
+        description: 'Subí los perfiles de tus mascotas a Adoptia para conectarlos con nuestro algoritmo avanzado conecta tus animales con los adoptantes más compatibles, aumentando las adopciones exitosas en un 40%.'
       },
       followUp: {
         title: 'Seguimiento post-adopción',
-        description: 'Sistema automatizado de seguimiento asegura transiciones exitosas con check-ins, recursos de entrenamiento y apoyo continuo para nuevas familias.'
+        description: 'Seguí al detalle cada adopcion con nuestro sistema automatizado de seguimiento asegura transiciones exitosas con check-ins, recursos de entrenamiento y apoyo continuo para nuevas familias.'
       },
       analytics: {
         title: 'Insights basados en datos',
-        description: 'Dashboard de análisis integral rastrea tasas de adopción, métricas de éxito y eficiencia operacional para optimizar el impacto de tu refugio.'
+        description: 'Visualizá en el dashboard de análisis integral rastrea tasas de adopción, métricas de éxito y eficiencia operacional para optimizar el impacto de tu refugio.'
       }
     },
     steps: {
@@ -261,7 +261,7 @@ const content: Content = {
     },
     contact: {
       title: '¿Tenés preguntas?',
-      email: 'Escribinos a hola@adoptia.app',
+      email: 'Escribinos a hola@rebaseit.tech',
       loveToHear: '¡Nos encantaría saber de vos!'
     },
     footer: {
