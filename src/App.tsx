@@ -228,7 +228,7 @@ const content: Content = {
     testimonials: {
       title: 'Potenciá tu refugio',
       petsManagement: {
-        title: 'Coordinación Inteligente de Entrevistas',
+        title: 'Gestión de Citas con Adoptantes',
         description: 'Coordiná entrevistas y visitas con adoptantes desde una agenda automatizada, optimizando tiempos y mejorando la experiencia de adopción.'
       },
       adopterFinder: {
