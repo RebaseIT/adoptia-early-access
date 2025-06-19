@@ -155,8 +155,8 @@ const content: Content = {
     testimonials: {
       title: 'Empower your shelter',
       petsManagement: {
-        title: 'Smart pet management',
-        description: 'Streamline your shelter operations with AI-powered pet profiles, automated health tracking, and intelligent inventory management.'
+        title: 'Smart Interview Scheduling',
+        description: 'Schedule interviews and visits with adopters through an automated calendar, saving time and improving the adoption experience.'
       },
       adopterFinder: {
         title: 'AI-Powered adopter matching',
@@ -228,7 +228,7 @@ const content: Content = {
     testimonials: {
       title: 'Potenciá tu refugio',
       petsManagement: {
-        title: 'Gestión Inteligente de Mascotas',
+        title: 'Coordinación Inteligente de Entrevistas',
         description: 'Coordiná entrevistas y visitas con adoptantes desde una agenda automatizada, optimizando tiempos y mejorando la experiencia de adopción.'
       },
       adopterFinder: {
