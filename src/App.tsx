@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Heart, Mail, Sparkles, Users, Shield, Star, Globe, Send, ChevronDown, Database, Search, HeartHandshake, BarChart3 } from 'lucide-react';
+import { Heart, Mail, Sparkles, Users, Shield, Star, Globe, Send, ChevronDown, CalendarCheck, Search, HeartHandshake, BarChart3 } from 'lucide-react';
 import { saveEmail } from './utils/emailStorage';
 
 type Language = 'es' | 'en';
@@ -229,19 +229,19 @@ const content: Content = {
       title: 'Potenciá tu refugio',
       petsManagement: {
         title: 'Gestión Inteligente de Mascotas',
-        description: 'Optimizá tu refugio con perfiles de mascotas potenciados por IA, seguimiento automático de salud y gestión inteligente de inventario.'
+        description: 'Coordiná entrevistas y visitas con adoptantes desde una agenda automatizada, optimizando tiempos y mejorando la experiencia de adopción.'
       },
       adopterFinder: {
         title: 'Matching de adoptantes por IA',
-        description: 'Subí los perfiles de tus mascotas a Adoptia para conectarlos con nuestro algoritmo avanzado conecta tus animales con los adoptantes más compatibles, aumentando las adopciones exitosas en un 40%.'
+        description: 'Publicá los perfiles de tus animales en Adoptia y utilizá nuestra tecnología de compatibilidad avanzada para mejorar la tasa de adopciones exitosas en un 80%.'
       },
       followUp: {
         title: 'Seguimiento post-adopción',
-        description: 'Seguí al detalle cada adopcion con nuestro sistema automatizado de seguimiento asegura transiciones exitosas con check-ins, recursos de entrenamiento y apoyo continuo para nuevas familias.'
+        description: 'Supervisá cada adopción con nuestro sistema de seguimiento, que garantiza transiciones exitosas mediante check-ins, recursos y apoyo continuo para las nuevas familias.'
       },
       analytics: {
         title: 'Insights basados en datos',
-        description: 'Visualizá en el dashboard de análisis integral rastrea tasas de adopción, métricas de éxito y eficiencia operacional para optimizar el impacto de tu refugio.'
+        description: 'Accedé a un panel de análisis completo para monitorear adopciones, evaluar resultados y mejorar la gestión y el impacto de tu refugio.'
       }
     },
     steps: {
@@ -600,7 +600,7 @@ function App() {
               isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
             }`}>
               <div className="w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full flex items-center justify-center mb-6">
-                <Database className="w-8 h-8 text-white" />
+                <CalendarCheck className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-xl font-bold text-gray-800 mb-4">{t.testimonials.petsManagement.title}</h3>
               <p className="text-gray-600 leading-relaxed text-sm">{t.testimonials.petsManagement.description}</p>
